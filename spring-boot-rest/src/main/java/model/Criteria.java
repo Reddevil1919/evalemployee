@@ -19,6 +19,7 @@ public class Criteria {
 	private String label;
 	
 	private Integer rating;
+	
 	private Integer coefficient;
 	
 }
