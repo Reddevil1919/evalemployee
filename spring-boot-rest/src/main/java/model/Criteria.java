@@ -10,12 +10,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
-@SequenceGenerator(name = "TASK_SEQ",sequenceName = "TASK_SEQ")
+@SequenceGenerator(name = "CRI_SEQ",sequenceName = "CRI_SEQ")
 @Getter @Setter @NoArgsConstructor
 public class Criteria {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "TASK_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "CRI_SEQ")
 	private String label;
 	private Integer rating;
 	private Integer coefficient;
