@@ -17,6 +17,7 @@ public class Criteria {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "CRI_SEQ")
 	private String label;
+	
 	private Integer rating;
 	private Integer coefficient;
 	
