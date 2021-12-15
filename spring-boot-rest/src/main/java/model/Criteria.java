@@ -20,6 +20,7 @@ public class Criteria {
 	
 	private Integer rating;
 	
+	
 	private Integer coefficient;
 	
 }
