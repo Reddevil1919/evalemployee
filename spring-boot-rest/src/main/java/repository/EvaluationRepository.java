@@ -3,9 +3,9 @@ package repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import model.Employee;
+import model.Evaluation;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface EvaluationRepository extends JpaRepository<Evaluation, Long> {
 
 }
