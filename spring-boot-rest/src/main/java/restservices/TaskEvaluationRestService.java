@@ -21,14 +21,14 @@ import repository.TaskEvaluationRepository;
 public class TaskEvaluationRestService {
 
 	@Autowired
-	TaskEvaluationRepository evaluationRepository;
+	TaskEvaluationRepository taskEvaluationRepository;
 	
 	@PostMapping("/evaluation/create")
 	public ResponseEntity<TaskEvaluation> createEvaluation(@RequestBody TaskEvaluation evaluation)
 	{
 		try {
-			TaskEvaluation createdEvaluation = evaluationRepository.save(evaluation);
-			return new ResponseEntity<TaskEvaluation>(createdEvaluation,HttpStatus.CREATED);
+			TaskEvaluation createdTaskEvaluation = taskEvaluationRepository.save(evaluation);
+			return new ResponseEntity<TaskEvaluation>(createdTaskEvaluation,HttpStatus.CREATED);
 		} catch (Exception e)
 		{
 			System.out.println(e.getMessage());
@@ -37,11 +37,11 @@ public class TaskEvaluationRestService {
 	}
 	
 	@GetMapping("/evaluations")
-	public ResponseEntity<List<TaskEvaluation>> getAllEvaluations(){
+	public ResponseEntity<List<TaskEvaluation>> getAllTaskEvaluations(){
 		
 		try {
 			
-			return new ResponseEntity<>(evaluationRepository.findAll(),HttpStatus.OK);
+			return new ResponseEntity<>(taskEvaluationRepository.findAll(),HttpStatus.OK);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
