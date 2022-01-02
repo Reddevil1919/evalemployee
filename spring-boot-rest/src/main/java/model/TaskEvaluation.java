@@ -38,6 +38,7 @@ public class TaskEvaluation {
 	@Transient
 	public Integer communication;
 	
+	public Integer processRespect;
 	
 	public Integer getPerformance()
 	{
