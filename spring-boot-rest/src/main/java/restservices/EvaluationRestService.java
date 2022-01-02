@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.Evaluation;
+import model.TaskEvaluation;
 import repository.EvaluationRepository;
 
 @RestController
@@ -24,11 +24,11 @@ public class EvaluationRestService {
 	EvaluationRepository evaluationRepository;
 	
 	@PostMapping("/evaluation/create")
-	public ResponseEntity<Evaluation> createEvaluation(@RequestBody Evaluation evaluation)
+	public ResponseEntity<TaskEvaluation> createEvaluation(@RequestBody TaskEvaluation evaluation)
 	{
 		try {
-			Evaluation createdEvaluation = evaluationRepository.save(evaluation);
-			return new ResponseEntity<Evaluation>(createdEvaluation,HttpStatus.CREATED);
+			TaskEvaluation createdEvaluation = evaluationRepository.save(evaluation);
+			return new ResponseEntity<TaskEvaluation>(createdEvaluation,HttpStatus.CREATED);
 		} catch (Exception e)
 		{
 			System.out.println(e.getMessage());
@@ -37,7 +37,7 @@ public class EvaluationRestService {
 	}
 	
 	@GetMapping("/evaluations")
-	public ResponseEntity<List<Evaluation>> getAllEvaluations(){
+	public ResponseEntity<List<TaskEvaluation>> getAllEvaluations(){
 		
 		try {
 			

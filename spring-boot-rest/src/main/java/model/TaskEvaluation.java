@@ -11,12 +11,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 @Entity
-@SequenceGenerator(name = "EVAL_SEQ",sequenceName = "EVAL_SEQ")
+@SequenceGenerator(name = "TEVAL_SEQ",sequenceName = "TEVAL_SEQ")
 @Getter @Setter @NoArgsConstructor
-public class Evaluation {
+public class TaskEvaluation {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "EVAL_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "TEVAL_SEQ")
 	private Long id;
 	
 	@OneToOne(targetEntity = Employee.class)
@@ -25,15 +25,18 @@ public class Evaluation {
 	@OneToOne(targetEntity = Task.class)
 	public Task task;
 	
-	@OneToOne(targetEntity = Criteria.class)
-	public Criteria quality;
+	public Integer quality;
+	public Integer productivity;
+	public Integer performance;
 	
-	@OneToOne(targetEntity = Criteria.class)
-	public Criteria productivity;
+	public Integer commTiming;
+	public Integer commAccuracy;
+	public Integer communication;
+	
 	
 	public Integer getPerformance()
 	{
-		return (quality.getRating()+productivity.getRating())/2;
+		return (quality+productivity)/2;
 	}
 	
 }
