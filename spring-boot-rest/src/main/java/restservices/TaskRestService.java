@@ -33,7 +33,6 @@ public class TaskRestService {
 			
 			
 			Task createdTask = taskRepository.save(task);
-			System.out.println("Task successfully created!");
 			return new ResponseEntity<Task>(createdTask,HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
