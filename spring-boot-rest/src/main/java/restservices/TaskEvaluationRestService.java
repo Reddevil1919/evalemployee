@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.TaskEvaluation;
-import repository.EvaluationRepository;
+import repository.TaskEvaluationRepository;
 
 @RestController
 @ComponentScan("repository")
 @Service
-public class EvaluationRestService {
+public class TaskEvaluationRestService {
 
 	@Autowired
-	EvaluationRepository evaluationRepository;
+	TaskEvaluationRepository evaluationRepository;
 	
 	@PostMapping("/evaluation/create")
 	public ResponseEntity<TaskEvaluation> createEvaluation(@RequestBody TaskEvaluation evaluation)

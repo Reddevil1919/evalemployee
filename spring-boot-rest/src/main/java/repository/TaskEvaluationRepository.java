@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import model.TaskEvaluation;
 
 @Repository
-public interface EvaluationRepository extends JpaRepository<TaskEvaluation, Long> {
+public interface TaskEvaluationRepository extends JpaRepository<TaskEvaluation, Long> {
 
 }
