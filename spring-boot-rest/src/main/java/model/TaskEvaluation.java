@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,10 +28,14 @@ public class TaskEvaluation {
 	
 	public Integer quality;
 	public Integer productivity;
+	
+	@Transient
 	public Integer performance;
 	
 	public Integer commTiming;
 	public Integer commAccuracy;
+	
+	@Transient
 	public Integer communication;
 	
 	
@@ -39,4 +44,8 @@ public class TaskEvaluation {
 		return (quality+productivity)/2;
 	}
 	
+	public Integer getCommunication()
+	{
+		return (commAccuracy+commTiming)/2;
+	}
 }
