@@ -40,6 +40,14 @@ public class TaskEvaluation {
 	
 	public Integer processRespect;
 	
+	public Integer problemSolving;
+	public Integer noAssistance;
+	public Integer analysisAccuracy;
+	
+	@Transient
+	public Integer autonomy;
+	
+	
 	public Integer getPerformance()
 	{
 		return (quality+productivity)/2;
@@ -48,5 +56,10 @@ public class TaskEvaluation {
 	public Integer getCommunication()
 	{
 		return (commAccuracy+commTiming)/2;
+	}
+	
+	public Integer getAutonomy()
+	{
+		return (problemSolving+noAssistance+analysisAccuracy)/3;
 	}
 }
