@@ -1,4 +1,4 @@
-package restservices;
+package restcontrollers;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import repository.TaskEvaluationRepository;
 @RestController
 @ComponentScan("repository")
 @Service
-public class TaskEvaluationRestService {
+public class TaskEvaluationRestController {
 
 	@Autowired
 	TaskEvaluationRepository taskEvaluationRepository;

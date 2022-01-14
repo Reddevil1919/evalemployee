@@ -1,4 +1,4 @@
-package restservices;
+package restcontrollers;
 
 import java.util.List;
 
@@ -14,20 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 import model.Employee;
 import repository.EmployeeRepository;
+import services.EmployeeService;
 
 @RestController
-@ComponentScan("repository")
+@ComponentScan("services")
 @Service
-public class EmployeeRestService {
+public class EmployeeRestController {
 
 	@Autowired
-	EmployeeRepository employeeRepository;
+	EmployeeService employeeService;
 	
 	@PostMapping("employee/create")
 	public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee)
 	{
 		try {
-			return new ResponseEntity<Employee>(employeeRepository.save(employee),HttpStatus.CREATED);
+			return new ResponseEntity<Employee>(employeeService.createEmployee(employee),HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
@@ -38,12 +39,13 @@ public class EmployeeRestService {
 	public ResponseEntity<List<Employee>> getAllEmployees()
 	{
 		try {
-			return new ResponseEntity<List<Employee>>(employeeRepository.findAll(),HttpStatus.OK);
+			return new ResponseEntity<List<Employee>>(employeeService.findAll(),HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+	
 	
 	
 }

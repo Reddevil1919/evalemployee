@@ -7,10 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import repository.TaskRepository;
-import restservices.TaskRestService;
+import restcontrollers.TaskRestController;
 
 @SpringBootApplication
-@ComponentScan(basePackages={"repository","restservices"})
+@ComponentScan(basePackages={"repository","restcontrollers","services"})
 @EnableJpaRepositories("repository")
 @EntityScan("model")
 public class SpringBootRestApplication {
