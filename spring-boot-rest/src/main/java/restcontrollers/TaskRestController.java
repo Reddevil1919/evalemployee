@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import model.Task;
 import repository.TaskRepository;
+import services.TaskService;
 
 @RestController
 @ComponentScan(basePackages = "repository")
@@ -24,7 +25,7 @@ import repository.TaskRepository;
 public class TaskRestController {
 
 	@Autowired
-	TaskRepository taskRepository;
+	TaskService taskService;
 	
 	@PostMapping("/task/create")
 	public ResponseEntity<Task> createTask(@RequestBody Task task)
@@ -32,7 +33,7 @@ public class TaskRestController {
 		try {
 			
 			
-			Task createdTask = taskRepository.save(task);
+			Task createdTask = taskService.createTask(task);
 			return new ResponseEntity<Task>(createdTask,HttpStatus.CREATED);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -45,7 +46,7 @@ public class TaskRestController {
 	public ResponseEntity<List<Task>> getAllTasks(){
 		
 		try {
-			return new ResponseEntity<>(taskRepository.findAll(),HttpStatus.OK);
+			return new ResponseEntity<>(taskService.findAll(),HttpStatus.OK);
 		}
 		catch (Exception e)
 		{
@@ -58,7 +59,7 @@ public class TaskRestController {
 	public ResponseEntity<Task> getTaskById(@PathVariable("id") long id)
 	{
 		try {
-			return new ResponseEntity<Task>(taskRepository.findById(id).get(),HttpStatus.OK);
+			return new ResponseEntity<Task>(taskService.findById(id),HttpStatus.OK);
 		} catch (Exception e) {
 			// TODO: handle exception
 			return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
